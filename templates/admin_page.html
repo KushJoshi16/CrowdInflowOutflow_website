@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crowd Video Analyser</title>
+</head>
+<body>
+    <form method="POST" action="/setinputData" enctype = "multipart/form-data">
+        <label for="file">Upload video file to set input</label>
+        <input type="file" name="file" id="file" accept="csv">
+        <input type="submit" name="file_upload" id="file_upload" value="Upload">
+    </form>
+    <br/><br/>
+    <form method="get" action="/analyseVideo">
+        <input type="submit" name="generate_btn" id="generate_btn", value="Run Video Analyser" onclick="myFunction()">
+    </form>
+
+    <form method="" action="/">
+        <input type="submit" name="goOut" id="goOut", value="View output video">
+    </form>
+    
+    <form method="" action="/logout">
+        <input type="submit" name="l0gOut" id="logOut", value="Log Out">
+    </form>
+
+    {% with messages=get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class='alert alert-{{category}} text-center alert-dismissible fade show m-auto'>
+          {{ message }}
+        </div>
+      {% endfor %}
+      {% endwith %}
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }}
+        {% endif %}
+        <script>
+          function myFunction() {
+            alert("Analysis in progress! You will be automaticaly redirected after completion");
+          }
+          </script>
+</body>
+</html>

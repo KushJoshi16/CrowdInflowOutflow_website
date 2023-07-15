@@ -1,0 +1,3 @@
+[submodule "VideoAnalyser"]
+	path = VideoAnalyser
+	url = https://github.com/KushJoshi16/CrowdInflowOutflow.git

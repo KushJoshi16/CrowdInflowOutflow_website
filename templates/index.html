@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Crowd Video Analyser</title>
+</head>
+
+<body>
+	<h2>Welcome To Crowd Video Analyser</h2>
+    {% block body %}
+    {% if OUT_FILE_USE_STATUS == 1 %}
+    <h3>Output file in processing. Reload to check status!</h3>
+    <script>window.alert("Output file is processing. Please Wait!")</script>
+    {% elif OUT_FILE_USE_STATUS == 0 %}
+    <video width="320" height="240" controls>
+            <source src="{{ url_for('static', filename='videos/output.mp4')}}" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      {% endif %}
+    {% endblock %}
+<form action="/admin">
+    <input type="submit" name="generate_btn" id="generate_btn" value="Go to Analyser Page">
+</form>
+
+
+
+
+</body>
+</html>
